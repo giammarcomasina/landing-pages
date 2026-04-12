@@ -1,44 +1,36 @@
-Ecco la landing page con gli elementi elencati nel JSON:
-
-```html
-<!DOCTYPE html>
-<html lang="it">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ristorante di lusso a Roma</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-</head>
-<body class="bg-cover bg-center bg-no-repeat" style="background-image: url('https://images.unsplash.com/photo-1627294451354-bf7e2c6b5a35?auto=format&fit=crop&w=1200&q=80')">
-
-    <div data-aos="fade-down" class="max-w-7xl mx-auto pt-12 px-4 sm:px-6 lg:px-8">
-        <h1 class="text-3xl font-bold text-gray-900">{{ $json.output.headline }}</h1>
-        <p class="mt-4 text-lg text-gray-700">{{ $json.output.heroText }}</p>
-
-        <div class="grid grid-cols-1 gap-6 mt-8 md:grid-cols-2 lg:grid-cols-3">
-            @foreach ($json.output.servizi as $servizio)
-                <div data-aos="fade-up" class="bg-white rounded-lg shadow-xl p-4">
-                    <h2 class="text-2xl font-bold text-gray-900">{{ $servizio->title }}</h2>
-                    <p class="mt-4 text-lg text-gray-700">{{ $servizio->description }}</p>
-                </div>
-            @endforeach
-        </div>
-
-        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-8">
-            {{ $json.output.cta }}
-        </button>
-    </div>
-
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-      AOS.init();
-    </script>
-
-</body>
-</html>
-```
-
-In questo esempio, ho utilizzato Tailwind CSS per stili e layout. Ho anche aggiunto la libreria AOS per le animazioni di ingresso.
-
-Spero che ti sia stato utile!
+ <!DOCTYPE html>
+   <html lang="it">
+   <head>
+       <meta charset="UTF-8">
+       <title>La Perla - Un'esperienza gastronomica di lusso a Roma</title>
+       <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+       <script src="https://cdn.tailwindcss.com"></script>
+       <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+   </head>
+   <body class="font-poppins bg-gradient-to-r from-gray-100 to-white">
+       <header style="background-image: url('https://images.unsplash.com/photo-1563379926898-05f4575a45d8?auto=format&fit=crop&w=1200&q=80')" class="text-white text-center py-20">
+           <h1 data-aos="fade-up" class="text-6xl font-bold mb-4">La Perla</h1>
+           <p data-aos="fade-up" class="text-xl">Scopri il gusto autentico dell'Italia al Ristorante La Perla, dove la qualità degli ingredienti si fonde con un servizio impeccabile.</p>
+       </header>
+       <section class="container mx-auto py-10">
+           <div data-aos="fade-right" class="mb-8">
+               <h2 class="text-3xl font-bold mb-4">Cucina Italiana Autentica</h2>
+               <p>Goditi una selezione di piatti tradizionali italiani, preparati con ingredienti freschi e di stagione.</p>
+           </div>
+           <div data-aos="fade-right" class="mb-8">
+               <h2 class="text-3xl font-bold mb-4">Ambiente Elegante</h2>
+               <p>Immergiti in un'atmosfera raffinata e accogliente, perfetta per occasioni speciali o una serata romantica.</p>
+           </div>
+           <div data-aos="fade-right" class="mb-8">
+               <h2 class="text-3xl font-bold mb-4">Vini di Qualità</h2>
+               <p>Accompagna il tuo pasto con la nostra selezione di vini italiani di alta qualità, scelti per soddisfare i palati più esigenti.</p>
+           </div>
+       </section>
+       <footer class="text-center py-10">
+           <a href="#" data-aos="zoom-in" class="bg-blue-500 text-white px-6 py-3 rounded hover:scale-105 transition-all duration-300 shadow-2xl">Prenota Ora</a>
+       </footer>
+   </body>
+   <script>
+     AOS.init();
+   </script>
+   </html>
