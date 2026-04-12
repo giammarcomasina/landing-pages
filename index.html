@@ -1,125 +1,94 @@
  <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scopri la Comodità e lo Stile con le Scarpe di Monzuno</title>
+    <!-- Import Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Import FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Custom CSS -->
     <style>
-        /* Add Tailwind CSS styles here */
+        /* Add your custom styles here */
     </style>
 </head>
-<body onload="AOS.init();">
+<body class="font-outfit text-slate-800 bg-zinc-50">
     <!-- Navbar -->
-    <nav class="sticky top-0 bg-white/30 backdrop-filter backdrop-blur-lg p-4 flex justify-between items-center rounded-3xl shadow-lg">
-        <a href="#" class="text-2xl font-bold text-gray-800 hover:text-gray-600">Scarpe Monzuno</a>
-        <ul class="flex space-x-4">
-            <li><a href="#" class="hover:text-gray-600">Home</a></li>
-            <li><a href="#prodotti" class="hover:text-gray-600">Prodotti</a></li>
-            <li><a href="#recensioni" class="hover:text-gray-600">Recensioni</a></li>
-            <li><a href="#contatti" class="hover:text-gray-600">Contatti</a></li>
+    <nav class="sticky top-0 z-50 backdrop-blur-md p-4 flex justify-between items-center">
+        <div class="text-2xl font-bold text-emerald-600">PC Quadro Roma</div>
+        <ul class="flex space-x-8">
+            <li><a href="#services" class="hover:text-emerald-600 transition duration-300">Servizi</a></li>
+            <li><a href="#testimonials" class="hover:text-emerald-600 transition duration-300">Recensioni</a></li>
+            <li><a href="#contact" class="hover:text-emerald-600 transition duration-300">Contatti</a></li>
         </ul>
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative h-screen flex items-center justify-center text-white" style="background-image: url('https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1200&q=80');">
-        <div class="absolute inset-0 bg-black opacity-50"></div>
-        <div class="relative z-10 text-center">
-            <h1 class="text-4xl font-bold mb-6">Scopri la Comodità e lo Stile con le Scarpe di Monzuno</h1>
-            <p class="text-lg mb-8">Scegli tra una vasta gamma di scarpe per ogni occasione, dalla moda alla sportiva. Trova il tuo paio perfetto!</p>
-            <a href="#prodotti" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Scopri la nostra collezione</a>
+    <section id="hero" class="py-24 flex items-center justify-between">
+        <div data-aos="fade-right" data-aos-delay="100" class="w-full md:w-1/2 pr-8">
+            <h1 class="text-5xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-indigo-600">Eleva la tua esperienza di gioco</h1>
+            <p class="text-lg mb-8">Scopri il potere dei nostri PC Quadro, progettati per offrirti prestazioni eccezionali e un'esperienza di gioco senza paragoni.</p>
+            <a href="#products" class="inline-block px-8 py-3 bg-emerald-600 text-white rounded-full shadow-lg hover:shadow-xl transition duration-300">Scopri i PC Quadro Roma</a>
+        </div>
+        <div data-aos="fade-left" data-aos-delay="200" class="hidden md:block w-1/2">
+            <img src="https://images.unsplash.com/photo-1638913970458-b9d68f95c5e7?auto=format&fit=crop&w=1200&q=80" alt="PC Quadro Roma">
         </div>
     </section>
 
-    <!-- Galleria Prodotti -->
-    <section id="prodotti" class="py-16">
-        <h2 class="text-3xl font-bold text-center mb-8">I Nostri Prodotti</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Product Card 1 -->
-            <div class="rounded-3xl shadow-lg overflow-hidden" data-aos="fade-up">
-                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1200&q=80" alt="Sneakers Sportive">
-                <div class="p-4">
-                    <h3 class="text-xl font-bold mb-2">Sneakers Sportive</h3>
-                    <p class="text-gray-600">€59.99</p>
-                </div>
+    <!-- Products Section -->
+    <section id="products" class="py-24 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Product Cards go here -->
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-zinc-50">
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div data-aos="fade-up" data-aos-delay="100" class="p-6 rounded-3xl shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] bg-gradient-to-r from-emerald-50 to-zinc-50">
+                <i class="fas fa-sync text-3xl mb-4"></i>
+                <h3 class="text-lg font-bold mb-2">Custom Loop</h3>
+                <p>Crea il tuo PC Quadro personalizzato con la nostra tecnologia di raffreddamento a loop chiuso. Goditi un'esperienza di gioco silenziosa e ottimizzata.</p>
             </div>
-            <!-- Add more product cards here -->
+            <!-- More Service Cards go here -->
         </div>
     </section>
 
-    <!-- Sezione Servizi -->
-    <section class="py-16 bg-gray-100">
-        <h2 class="text-3xl font-bold text-center mb-8">I Nostri Servizi</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Service Card 1 -->
-            <div class="rounded-3xl shadow-lg p-6 text-center" data-aos="fade-up">
-                <i class="fas fa-box-open text-4xl mb-4"></i>
-                <h3 class="text-xl font-bold mb-2">Scelta Vastissima</h3>
-                <p class="text-gray-600">Sfoglia la nostra collezione di scarpe da ginnastica, sportive e vintage per uomini, donne e bambini.</p>
-            </div>
-            <!-- Add more service cards here -->
-        </div>
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-24">
+        <!-- Testimonial Cards go here -->
     </section>
 
-    <!-- Testimonials -->
-    <section id="recensioni" class="py-16">
-        <h2 class="text-3xl font-bold text-center mb-8">Cosa Dicono di Noi</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Testimonial 1 -->
-            <div class="rounded-3xl shadow-lg p-6" data-aos="fade-up">
-                <p class="text-gray-600 mb-4">"Ho trovato le scarpe perfette per il mio allenamento. Sono comode, resistenti e hanno un design moderno."</p>
-                <div class="flex items-center justify-between">
-                    <span class="font-bold text-gray-800">Marco Rossi</span>
-                    <div class="text-yellow-500">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-            </div>
-            <!-- Add more testimonials here -->
-        </div>
-    </section>
-
-    <!-- Google Maps -->
-    <section id="contatti" class="py-16">
-        <h2 class="text-3xl font-bold text-center mb-8">Dove Siamo</h2>
-        <div class="rounded-3xl shadow-lg overflow-hidden">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2796.450842240462!2d9.189287215800058!3d45.46420497909849!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4786c15a0b9e8d6d%3A0xb5698557580d826e!2sPiazza%20Garibaldi%2C%20Monza%20MB!5e0!3m2!1sen!2sit!4v1621582499117!5m2!1sen!2sit" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    <!-- Google Maps Section -->
+    <section id="map" class="py-24">
+        <div class="container mx-auto rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)]">
+            <!-- Google Maps iframe goes here -->
         </div>
     </section>
 
     <!-- Cookie & Privacy Banner -->
-    <div class="fixed bottom-0 left-0 right-0 bg-gray-800 text-white p-4 text-center">
-        Questo sito web utilizza cookie per migliorare l'esperienza utente. Continuando a navigare, accetti la nostra politica sulla privacy e i termini di utilizzo dei cookie.
+    <div class="fixed bottom-0 left-0 right-0 bg-zinc-900 text-white p-4 flex justify-between items-center">
+        <p>Questo sito web utilizza cookie per migliorare l'esperienza utente.</p>
+        <button class="px-6 py-2 bg-emerald-600 text-white rounded-full hover:bg-emerald-700 transition duration-300">Accetta</button>
     </div>
 
-    <!-- Contatti & Footer -->
-    <footer class="py-16 bg-gray-900 text-white">
-        <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <!-- Contact Info -->
-            <div>
-                <h3 class="text-xl font-bold mb-4">Contatti</h3>
-                <p><i class="fas fa-map-marker-alt mr-2"></i>Via Roma 12, Monzuno (MI)</p>
-                <p><i class="fas fa-phone mr-2"></i>+39 02 12345678</p>
-            </div>
-            <!-- Opening Hours -->
-            <div>
-                <h3 class="text-xl font-bold mb-4">Orari di Apertura</h3>
-                <p><i class="fas fa-clock mr-2"></i>Lunedì - Venerdì: 9:00 - 18:00</p>
-                <p><i class="fas fa-clock mr-2"></i>Sabato: 9:00 - 13:00</p>
-            </div>
-            <!-- WhatsApp Button -->
-            <div>
-                <a href="https://wa.me/+3912345678" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded inline-block">
-                    <i class="fab fa-whatsapp mr-2"></i>Contattaci su WhatsApp
-                </a>
-            </div>
-        </div>
+    <!-- Contacts & Footer -->
+    <footer id="contact" class="py-24 bg-zinc-900 text-white">
+        <!-- Contact Information and Social Links go here -->
     </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/123456789" class="fixed bottom-8 right-8 bg-emerald-600 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition duration-300 animate-pulse">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+    </script>
 </body>
 </html>
