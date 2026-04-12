@@ -1,36 +1,101 @@
  <!DOCTYPE html>
-   <html lang="it">
-   <head>
-       <meta charset="UTF-8">
-       <title>La Perla - Un'esperienza gastronomica di lusso a Roma</title>
-       <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-       <script src="https://cdn.tailwindcss.com"></script>
-       <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-   </head>
-   <body class="font-poppins bg-gradient-to-r from-gray-100 to-white">
-       <header style="background-image: url('https://images.unsplash.com/photo-1563379926898-05f4575a45d8?auto=format&fit=crop&w=1200&q=80')" class="text-white text-center py-20">
-           <h1 data-aos="fade-up" class="text-6xl font-bold mb-4">La Perla</h1>
-           <p data-aos="fade-up" class="text-xl">Scopri il gusto autentico dell'Italia al Ristorante La Perla, dove la qualità degli ingredienti si fonde con un servizio impeccabile.</p>
-       </header>
-       <section class="container mx-auto py-10">
-           <div data-aos="fade-right" class="mb-8">
-               <h2 class="text-3xl font-bold mb-4">Cucina Italiana Autentica</h2>
-               <p>Goditi una selezione di piatti tradizionali italiani, preparati con ingredienti freschi e di stagione.</p>
-           </div>
-           <div data-aos="fade-right" class="mb-8">
-               <h2 class="text-3xl font-bold mb-4">Ambiente Elegante</h2>
-               <p>Immergiti in un'atmosfera raffinata e accogliente, perfetta per occasioni speciali o una serata romantica.</p>
-           </div>
-           <div data-aos="fade-right" class="mb-8">
-               <h2 class="text-3xl font-bold mb-4">Vini di Qualità</h2>
-               <p>Accompagna il tuo pasto con la nostra selezione di vini italiani di alta qualità, scelti per soddisfare i palati più esigenti.</p>
-           </div>
-       </section>
-       <footer class="text-center py-10">
-           <a href="#" data-aos="zoom-in" class="bg-blue-500 text-white px-6 py-3 rounded hover:scale-105 transition-all duration-300 shadow-2xl">Prenota Ora</a>
-       </footer>
-   </body>
-   <script>
-     AOS.init();
-   </script>
-   </html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scopri la Comodità e lo Stile con le Scarpe Elegante Sas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="font-sans bg-gray-100 text-gray-900" onload="AOS.init()">
+
+    <!-- Navbar -->
+    <nav class="bg-transparent p-4 fixed w-full z-50 backdrop-filter backdrop-blur-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-white">Elegante Sas</a>
+            <ul class="flex space-x-4">
+                <li><a href="#services" class="text-gray-300 hover:text-white transition duration-300">Servizi</a></li>
+                <li><a href="#contact" class="text-gray-300 hover:text-white transition duration-300">Contatti</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="h-screen bg-cover bg-center relative" style="background-image: url('https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1200&q=80')">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <div class="container mx-auto h-full flex items-center justify-center text-white relative z-10" data-aos="fade-up">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4">Scopri la Comodità e lo Stile con le Scarpe Elegante Sas</h1>
+                <p class="text-lg md:text-xl mb-8">Eleva il tuo stile con scarpe eleganti e di alta qualità, progettate per soddisfare i tuoi gusti raffinati.</p>
+                <div class="space-x-4">
+                    <button class="bg-green-500 text-white px-6 py-3 rounded-full transition duration-500 hover:scale-105 hover:shadow-green-500/50">Scopri la Nostra Gamma</button>
+                    <button class="border border-gray-300 text-white px-6 py-3 rounded-full transition duration-500 hover:scale-105 hover:shadow-green-500/50">Prenota un Appuntamento</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-gray-200">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8">I Nostri Servizi</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8" data-aos="fade-right">
+                <!-- Service Card -->
+                <div class="bg-white rounded-3xl shadow-lg p-6 transition duration-500 hover:shadow-green-500/50">
+                    <i class="fas fa-user-tie text-4xl mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Consulenza Personalizzata</h3>
+                    <p class="text-gray-600">I nostri esperti ti aiuteranno a trovare la scarpa perfetta, basandosi sulle tue preferenze e le tue esigenze.</p>
+                </div>
+                <!-- Service Card -->
+                <div class="bg-white rounded-3xl shadow-lg p-6 transition duration-500 hover:shadow-green-500/50">
+                    <i class="fas fa-tags text-4xl mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Ampia Gamma di Marchi</h3>
+                    <p class="text-gray-600">Sfoglia la nostra vasta gamma di marchi di lusso, tra cui Gucci, Prada e Louis Vuitton.</p>
+                </div>
+                <!-- Service Card -->
+                <div class="bg-white rounded-3xl shadow-lg p-6 transition duration-500 hover:shadow-green-500/50">
+                    <i class="fas fa-calendar-alt text-4xl mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Appuntamenti su Misura</h3>
+                    <p class="text-gray-600">Prenota un appuntamento presso il nostro negozio per una consulenza personalizzata e un'esperienza di acquisto esclusiva.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8">Contatti</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8" data-aos="fade-up">
+                <div class="bg-white rounded-3xl shadow-lg p-6">
+                    <p><i class="fas fa-map-marker-alt mr-2"></i>Via Roma 12, Monzuno (MI)</p>
+                    <p><i class="fas fa-phone mr-2"></i>(+39) 02 12345678</p>
+                    <p><i class="fas fa-envelope mr-2"></i>info@elegantesas.it</p>
+                </div>
+                <div class="bg-white rounded-3xl shadow-lg p-6">
+                    <h3 class="text-xl font-semibold mb-4">Seguici sui Social</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-700 hover:text-green-500 transition duration-300"><i class="fab fa-facebook-f text-2xl"></i></a>
+                        <a href="#" class="text-gray-700 hover:text-green-500 transition duration-300"><i class="fab fa-twitter text-2xl"></i></a>
+                        <a href="#" class="text-gray-700 hover:text-green-500 transition duration-300"><i class="fab fa-instagram text-2xl"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-4">
+        <div class="container mx-auto px-4 text-center text-white">
+            &copy; 2023 Elegante Sas. Tutti i diritti riservati.
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/123456789" class="fixed bottom-4 right-4 bg-green-500 text-white p-4 rounded-full shadow-lg transition duration-500 hover:scale-105 hover:shadow-green-500/50">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+</body>
+</html>
