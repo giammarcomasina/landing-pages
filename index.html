@@ -1,70 +1,44 @@
+Ecco la landing page con gli elementi elencati nel JSON:
+
+```html
 <!DOCTYPE html>
 <html lang="it">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Caffè dell'Amicizia</title>
-	<style>
-		body {
-			font-family: Arial, sans-serif;
-			background-color: #f2f2f2;
-		}
-		
-		header {
-			background-color: #333;
-			color: #fff;
-			padding: 20px;
-			text-align: center;
-		}
-		
-		main {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			padding: 40px;
-		}
-		
-		.service {
-			background-color: #f7f7f7;
-			padding: 20px;
-			border-radius: 10px;
-			margin-bottom: 20px;
-		}
-		
-		.call-to-action {
-			background-color: #333;
-			color: #fff;
-			padding: 20px;
-			text-align: center;
-			border-radius: 10px;
-			margin-top: 40px;
-		}
-	</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ristorante di lusso a Roma</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
-<body>
-	<header>
-		<h1>{{ $json.output.title }}</h1>
-		<p>{{ $json.output.heroText }}</p>
-	</header>
-	<main>
-		<h2>Nostre specialità</h2>
-		<div class="service">
-			<h3>{{ $json.output.services[0].titolo }}</h3>
-			<p>{{ $json.output.services[0].descrizione }}</p>
-		</div>
-		<div class="service">
-			<h3>{{ $json.output.services[1].titolo }}</h3>
-			<p>{{ $json.output.services[1].descrizione }}</p>
-		</div>
-		<div class="service">
-			<h3>{{ $json.output.services[2].titolo }}</h3>
-			<p>{{ $json.output.services[2].descrizione }}</p>
-		</div>
-	</main>
-	<div class="call-to-action">
-		{{ $json.output.callToAction }}
-	</div>
+<body class="bg-cover bg-center bg-no-repeat" style="background-image: url('https://images.unsplash.com/photo-1627294451354-bf7e2c6b5a35?auto=format&fit=crop&w=1200&q=80')">
+
+    <div data-aos="fade-down" class="max-w-7xl mx-auto pt-12 px-4 sm:px-6 lg:px-8">
+        <h1 class="text-3xl font-bold text-gray-900">{{ $json.output.headline }}</h1>
+        <p class="mt-4 text-lg text-gray-700">{{ $json.output.heroText }}</p>
+
+        <div class="grid grid-cols-1 gap-6 mt-8 md:grid-cols-2 lg:grid-cols-3">
+            @foreach ($json.output.servizi as $servizio)
+                <div data-aos="fade-up" class="bg-white rounded-lg shadow-xl p-4">
+                    <h2 class="text-2xl font-bold text-gray-900">{{ $servizio->title }}</h2>
+                    <p class="mt-4 text-lg text-gray-700">{{ $servizio->description }}</p>
+                </div>
+            @endforeach
+        </div>
+
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-8">
+            {{ $json.output.cta }}
+        </button>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+
 </body>
 </html>
+```
 
-Nota: I dati ricevuti dal nodo precedente sono stati utilizzati per creare la landing page. La struttura dei dati è stata mantenuta nella forma ricevuta e il codice HTML è stato creato in base a questi dati.
+In questo esempio, ho utilizzato Tailwind CSS per stili e layout. Ho anche aggiunto la libreria AOS per le animazioni di ingresso.
+
+Spero che ti sia stato utile!
