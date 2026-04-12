@@ -1,177 +1,229 @@
+```html
 <!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trattoria Valerio | Eccellenza Bolognese dal 1898</title>
+    <title>Calzature Melega | L'Eccellenza del Made in Italy a Bologna</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@200;300;400;600&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; }
+        body { font-family: 'Montserrat', sans-serif; scroll-behavior: smooth; }
         h1, h2, h3, .font-serif { font-family: 'Playfair Display', serif; }
-        .hero-bg {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&q=80&w=1920');
+        
+        .bg-luxury {
+            background-color: #0f0f0f;
+        }
+        .text-gold {
+            color: #C5A059;
+        }
+        .bg-gold {
+            background-color: #C5A059;
+        }
+        .border-gold {
+            border-color: #C5A059;
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=2012&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
+            background-attachment: fixed;
         }
-        .gold-accent { color: #D4AF37; }
-        .bg-gold-accent { background-color: #D4AF37; }
-        .border-gold { border-color: #D4AF37; }
+
+        .gold-gradient {
+            background: linear-gradient(135deg, #C5A059 0%, #E3C588 50%, #C5A059 100%);
+        }
+
+        .floating-wa {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
     </style>
 </head>
-<body class="bg-stone-50 text-stone-900">
+<body class="bg-[#FDFBF7] text-[#1a1a1a]">
+
+    <!-- Bottone WhatsApp Fluttuante -->
+    <a href="https://wa.me/39051233513" class="floating-wa bg-green-600 text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform flex items-center justify-center">
+        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.319 1.592 5.448 0 9.886-4.438 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.438-9.89 9.886-.001 2.15.633 4.192 1.815 5.834l-1.104 4.036 4.165-1.093z"/></svg>
+    </a>
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-stone-900/90 backdrop-blur-sm text-white px-6 py-4 flex justify-between items-center border-b border-stone-800">
-        <div class="text-2xl font-serif font-bold tracking-widest">VALERIO <span class="text-sm block font-sans font-light tracking-widest opacity-70">BOLOGNA 1898</span></div>
-        <div class="hidden md:flex space-x-8 text-sm uppercase tracking-widest">
-            <a href="#storia" class="hover:text-amber-400 transition">Storia</a>
-            <a href="#servizi" class="hover:text-amber-400 transition">Esperienze</a>
-            <a href="#recensioni" class="hover:text-amber-400 transition">Recensioni</a>
-            <a href="#dove" class="hover:text-amber-400 transition">Contatti</a>
+    <nav class="absolute top-0 left-0 w-full z-50 flex justify-between items-center px-10 py-8 text-white">
+        <div class="text-3xl font-serif tracking-widest border-b-2 border-gold">MELEGA</div>
+        <div class="hidden lg:flex space-x-10 text-xs uppercase tracking-[0.3em]">
+            <a href="#storia" class="hover:text-gold transition">La Storia</a>
+            <a href="#servizi" class="hover:text-gold transition">Esclusività</a>
+            <a href="#recensioni" class="hover:text-gold transition">Esperienze</a>
+            <a href="#contatti" class="hover:text-gold transition">Contatti</a>
         </div>
-        <a href="https://wa.me/39051263338" class="bg-gold-accent hover:bg-amber-500 text-stone-900 px-6 py-2 rounded-full font-bold transition text-sm">PRENOTA</a>
+        <a href="https://wa.me/39051233513" class="gold-gradient text-white px-8 py-3 rounded-full text-xs font-bold tracking-widest shadow-lg hover:brightness-110 transition">PRENOTA APPUNTAMENTO</a>
     </nav>
 
-    <!-- Section 1: Hero -->
-    <header class="h-screen hero-bg flex items-center justify-center text-center text-white px-4">
-        <div class="max-w-4xl">
-            <span class="uppercase tracking-[0.3em] text-sm mb-4 block animate-fade-in text-amber-400">Autenticità Senza Tempo</span>
-            <h1 class="text-5xl md:text-7xl mb-6">Assapora la vera storia di Bologna alla Trattoria Valerio</h1>
-            <p class="text-lg md:text-xl font-light mb-10 max-w-2xl mx-auto italic text-stone-200">
-                "Dal 1898 portiamo in tavola l'autenticità della cucina bolognese, con ricette tramandate da generazioni e l'amore per le materie prime del territorio."
+    <!-- 1. HERO SECTION -->
+    <header class="hero-section h-screen flex items-center justify-center text-center px-6">
+        <div class="max-w-5xl">
+            <span class="text-gold text-sm uppercase tracking-[0.5em] mb-6 block animate-pulse">Bologna, Via Riva di Reno 15/E</span>
+            <h1 class="text-5xl md:text-8xl text-white mb-8 leading-tight">Calzature Melega: L'eccellenza artigiana ai tuoi piedi</h1>
+            <p class="text-white/80 text-lg md:text-2xl font-light mb-12 max-w-3xl mx-auto leading-relaxed italic">
+                "Da oltre 40 anni selezioniamo le migliori calzature Made in Italy, unendo il fascino del design artigianale al comfort assoluto per ogni tua giornata."
             </p>
-            <div class="flex flex-col md:flex-row gap-4 justify-center">
-                <a href="https://wa.me/39051263338" class="bg-white text-stone-900 px-8 py-4 rounded-sm font-bold hover:bg-stone-200 transition duration-300">
-                    PRENOTA UN TAVOLO ORA
-                </a>
-                <a href="#storia" class="border border-white text-white px-8 py-4 rounded-sm font-bold hover:bg-white hover:text-stone-900 transition duration-300">
-                    SCOPRI LA STORIA
-                </a>
+            <div class="flex flex-col sm:flex-row justify-center gap-6">
+                <a href="#contatti" class="bg-white text-black px-10 py-5 text-sm font-bold tracking-widest hover:bg-gold transition duration-500 uppercase">Vieni a scoprire la collezione</a>
+                <a href="https://wa.me/39051233513" class="border border-white text-white px-10 py-5 text-sm font-bold tracking-widest hover:bg-white hover:text-black transition duration-500 uppercase">Contatta su WhatsApp</a>
             </div>
         </div>
     </header>
 
-    <!-- Section 2: La Nostra Eredità -->
-    <section id="storia" class="py-24 px-6 md:px-20 grid md:grid-cols-2 gap-16 items-center">
-        <div>
-            <span class="gold-accent uppercase tracking-widest text-sm font-bold">L'Eredità</span>
-            <h2 class="text-4xl md:text-5xl my-6">Oltre un secolo di eccellenza culinaria</h2>
-            <p class="text-stone-600 leading-relaxed mb-6">
-                Nel cuore pulsante di Bologna, in Via Avesella, sorge un tempio del gusto dove il tempo sembra essersi fermato. Dal 1898, la Trattoria Valerio non è solo un ristorante, ma un custode delle tradizioni bolognesi più pure. 
-            </p>
-            <p class="text-stone-600 leading-relaxed italic border-l-4 border-gold pl-6 py-2">
-                "Non siamo un ristorante moderno, siamo la storia di Bologna. Qui ogni piatto racconta un segreto di famiglia, ogni profumo evoca un ricordo d'infanzia."
-            </p>
-        </div>
-        <div class="relative">
-            <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&q=80&w=800" alt="Cucina Tradizionale" class="rounded-sm shadow-2xl">
-            <div class="absolute -bottom-8 -left-8 bg-stone-900 text-white p-8 hidden md:block">
-                <p class="text-3xl font-serif">125+</p>
-                <p class="text-xs uppercase tracking-widest opacity-60">Anni di Passione</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section 3: Servizi (Le Esperienze) -->
-    <section id="servizi" class="py-24 bg-stone-100 px-6">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl mb-4">Le Nostre Specialità</h2>
-                <div class="h-1 w-24 bg-gold-accent mx-auto"></div>
-            </div>
-            <div class="grid md:grid-cols-3 gap-12">
-                <!-- Servizio 1 -->
-                <div class="bg-white p-10 shadow-sm border-t-4 border-gold">
-                    <h3 class="text-2xl mb-4">Pasta Fresca al Mattarello</h3>
-                    <p class="text-stone-600 text-sm leading-relaxed">
-                        Dai tortellini in brodo di cappone alle tagliatelle al ragù antico, la nostra pasta è tirata a mano ogni giorno come vuole la tradizione.
-                    </p>
-                </div>
-                <!-- Servizio 2 -->
-                <div class="bg-white p-10 shadow-sm border-t-4 border-gold">
-                    <h3 class="text-2xl mb-4">Il Gran Carrello dei Bolliti</h3>
-                    <p class="text-stone-600 text-sm leading-relaxed">
-                        Un'esperienza d'altri tempi: tagli pregiati di carne serviti caldi direttamente al tavolo e accompagnati dalla nostra salsa verde artigianale.
-                    </p>
-                </div>
-                <!-- Servizio 3 -->
-                <div class="bg-white p-10 shadow-sm border-t-4 border-gold">
-                    <h3 class="text-2xl mb-4">Atmosfera Storica</h3>
-                    <p class="text-stone-600 text-sm leading-relaxed">
-                        Siediti tra le mura di una delle osterie più antiche di Bologna, dove il tempo si è fermato per lasciar spazio alla convivialità e al gusto.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section 4: Reviews (4.7 Stars) -->
-    <section id="recensioni" class="py-24 px-6 bg-stone-900 text-white">
-        <div class="max-w-5xl mx-auto">
-            <div class="flex flex-col items-center mb-16">
-                <h2 class="text-4xl mb-4 text-center">Cosa Dicono i Nostri Ospiti</h2>
-                <div class="flex items-center space-x-2">
-                    <div class="flex text-amber-400">
-                        ★★★★★
-                    </div>
-                    <span class="text-lg font-bold">4.7 / 5</span>
-                    <span class="text-stone-500 text-sm">(924+ recensioni)</span>
-                </div>
+    <!-- 2. LA NOSTRA FILOSOFIA (Servizi) -->
+    <section id="servizi" class="py-24 px-6 md:px-20 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-6xl mb-4 italic">I Nostri Pilastri</h2>
+                <div class="h-[2px] w-40 bg-gold mx-auto"></div>
             </div>
             
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="border border-stone-800 p-8 rounded-sm">
-                    <p class="italic text-stone-300 mb-6">"Un tuffo nel passato. I migliori tortellini in brodo mai mangiati a Bologna. Servizio veloce e cortese. Un posto vero, lontano dalle trappole per turisti."</p>
-                    <p class="font-bold uppercase tracking-widest text-xs gold-accent">— Marco R.</p>
+            <div class="grid lg:grid-cols-3 gap-16">
+                <div class="group text-center">
+                    <div class="mb-8 overflow-hidden inline-block">
+                        <span class="text-6xl text-gold font-serif opacity-30 group-hover:opacity-100 transition duration-500">I</span>
+                    </div>
+                    <h3 class="text-2xl mb-4 uppercase tracking-widest">Qualità 100% Made in Italy</h3>
+                    <p class="text-stone-500 leading-relaxed font-light">
+                        Una selezione curata dei migliori pellami e laboratori artigianali per garantirti una scarpa duratura, elegante e rifinita interamente a mano.
+                    </p>
                 </div>
-                <div class="border border-stone-800 p-8 rounded-sm">
-                    <p class="italic text-stone-300 mb-6">"Il carrello dei bolliti è un'esperienza mistica. Porzioni abbondanti e prezzi onesti. È come mangiare a casa della nonna, ma con l'eccellenza di uno chef."</p>
-                    <p class="font-bold uppercase tracking-widest text-xs gold-accent">— Elena V.</p>
+
+                <div class="group text-center">
+                    <div class="mb-8 overflow-hidden inline-block">
+                        <span class="text-6xl text-gold font-serif opacity-30 group-hover:opacity-100 transition duration-500">II</span>
+                    </div>
+                    <h3 class="text-2xl mb-4 uppercase tracking-widest">Comfort e Benessere</h3>
+                    <p class="text-stone-500 leading-relaxed font-light">
+                        Calzature studiate per adattarsi perfettamente alla tua fisionomia e alla vita urbana, perché la vera eleganza non deve mai rinunciare alla comodità.
+                    </p>
+                </div>
+
+                <div class="group text-center">
+                    <div class="mb-8 overflow-hidden inline-block">
+                        <span class="text-6xl text-gold font-serif opacity-30 group-hover:opacity-100 transition duration-500">III</span>
+                    </div>
+                    <h3 class="text-2xl mb-4 uppercase tracking-widest">Consulenza Personalizzata</h3>
+                    <p class="text-stone-500 leading-relaxed font-light">
+                        I nostri esperti ti guideranno nella scelta della calzata ideale, offrendoti un'assistenza su misura che solo decenni di esperienza possono garantire.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section 5: Map & Info -->
-    <section id="dove" class="py-24 px-6 md:px-20 grid md:grid-cols-2 gap-0 shadow-xl overflow-hidden">
-        <div class="bg-white p-12 flex flex-col justify-center border border-stone-200">
-            <h2 class="text-4xl mb-8">Trovaci nel cuore di Bologna</h2>
-            <div class="space-y-6">
+    <!-- 3. RECENSIONI (4.7 Stelle) -->
+    <section id="recensioni" class="py-24 bg-luxury text-white overflow-hidden relative">
+        <div class="max-w-6xl mx-auto px-6 relative z-10">
+            <div class="flex flex-col md:flex-row items-end justify-between mb-20 gap-8">
                 <div>
-                    <h4 class="font-bold uppercase text-xs tracking-widest text-stone-400 mb-2">Indirizzo</h4>
-                    <p>Via Avesella, 10, 40121 Bologna (BO)</p>
+                    <h2 class="text-5xl md:text-7xl mb-4 italic">La voce dei nostri clienti</h2>
+                    <p class="text-gold tracking-[0.3em] uppercase text-sm">Passione riconosciuta da chi ci sceglie ogni giorno</p>
                 </div>
-                <div>
-                    <h4 class="font-bold uppercase text-xs tracking-widest text-stone-400 mb-2">Orari</h4>
-                    <p>Lunedì - Sabato: 12:30–14:30, 19:30–22:30</p>
-                    <p>Domenica: Chiuso</p>
+                <div class="text-right">
+                    <div class="text-5xl font-serif text-gold mb-2">4.7</div>
+                    <div class="flex justify-end text-amber-400 mb-1">
+                        ★★★★★
+                    </div>
+                    <p class="text-xs opacity-50 uppercase tracking-widest">Valutazione media Google Maps</p>
                 </div>
-                <div>
-                    <h4 class="font-bold uppercase text-xs tracking-widest text-stone-400 mb-2">Contatti</h4>
-                    <p>Telefono: 051 263338</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-10">
+                <div class="bg-white/5 p-12 border border-white/10 hover:border-gold transition duration-500">
+                    <p class="text-xl font-light italic mb-10 leading-relaxed">
+                        "Vasto assortimento di scarpe di ottima qualità. Il titolare è gentilissimo e molto competente, sa consigliarti la scarpa giusta per il tuo piede. Un punto di riferimento a Bologna."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="h-[1px] w-10 bg-gold"></div>
+                        <span class="uppercase tracking-widest text-xs font-bold text-gold">Giovanni B.</span>
+                    </div>
                 </div>
-                <div class="pt-6">
-                    <a href="https://wa.me/39051263338" class="inline-flex items-center space-x-3 bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-md transition">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.319 1.592 5.448 0 9.886-4.438 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.438-9.89 9.886-.001 2.15.633 4.192 1.815 5.834l-1.104 4.036 4.165-1.093z"/></svg>
-                        <span>Contatta su WhatsApp</span>
-                    </a>
+                <div class="bg-white/5 p-12 border border-white/10 hover:border-gold transition duration-500">
+                    <p class="text-xl font-light italic mb-10 leading-relaxed">
+                        "Scarpe bellissime e soprattutto comode. Si vede che c'è una ricerca della qualità. Servizio impeccabile, ci tornerò sicuramente! La miglior selezione di Bologna."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="h-[1px] w-10 bg-gold"></div>
+                        <span class="uppercase tracking-widest text-xs font-bold text-gold">Laura M.</span>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="h-96 md:h-full min-h-[400px]">
+        <!-- Elemento decorativo -->
+        <div class="absolute -right-20 -bottom-20 text-[20rem] font-serif text-white/5 select-none">M</div>
+    </section>
+
+    <!-- 4. MAPPA E INFO CONTATTO -->
+    <section id="contatti" class="grid lg:grid-cols-2 min-h-[600px]">
+        <div class="bg-[#F9F6F2] p-12 md:p-24 flex flex-col justify-center">
+            <span class="text-gold font-bold uppercase tracking-widest text-sm mb-4 block">Contatti & Orari</span>
+            <h2 class="text-4xl md:text-5xl mb-12 italic">Ti aspettiamo nel nostro salotto in centro</h2>
+            
+            <div class="space-y-10">
+                <div class="flex gap-6">
+                    <div class="text-gold">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    </div>
+                    <div>
+                        <h4 class="font-bold uppercase tracking-widest text-xs mb-2 text-stone-400">Indirizzo</h4>
+                        <p class="text-xl">Via Riva di Reno, 15/E, 40121 Bologna (BO)</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-6">
+                    <div class="text-gold">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <div>
+                        <h4 class="font-bold uppercase tracking-widest text-xs mb-2 text-stone-400">Orari di Apertura</h4>
+                        <p class="text-lg">Lun - Sab: 09:00 - 13:00 | 15:30 - 19:30</p>
+                        <p class="text-stone-500 italic">Chiuso il Giovedì Pomeriggio e la Domenica</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-6">
+                    <div class="text-gold">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                    </div>
+                    <div>
+                        <h4 class="font-bold uppercase tracking-widest text-xs mb-2 text-stone-400">Prenotazioni</h4>
+                        <p class="text-xl mb-4">Telefono: 051 233513</p>
+                        <a href="https://wa.me/39051233513" class="inline-flex items-center gap-3 bg-green-600 text-white px-6 py-3 rounded-full hover:bg-green-700 transition font-bold text-sm">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.319 1.592 5.448 0 9.886-4.438 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.438-9.89 9.886-.001 2.15.633 4.192 1.815 5.834l-1.104 4.036 4.165-1.093z"/></svg>
+                            Contatta su WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="h-[500px] lg:h-auto">
             <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m18!1m12!1m1!1s0x477fd49646b5a34f:0x39a1496a75f0f353!2sVia+Avesella,+10,+40121+Bologna+BO!5e0!3m2!1sit!2sit!4v1715421234567!5m2!1sit!2sit" 
-                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m12!1m1!1s0x477fd49646b5a34f:0x2289c09c25f4886b!2sVia+Riva+di+Reno,+15,+40121+Bologna+BO!5e0!3m2!1sit!2sit!4v1715421234567!5m2!1sit!2sit" 
+                width="100%" height="100%" style="border:0; filter: grayscale(100%) invert(90%);" allowfullscreen="" loading="lazy">
             </iframe>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-stone-950 text-stone-500 py-12 text-center text-sm border-t border-stone-900">
-        <div class="mb-6 text-white font-serif tracking-widest text-xl">TRATTORIA VALERIO</div>
-        <p>&copy; 1898 - 2024 Trattoria Valerio Bologna. Tutti i diritti riservati.</p>
-        <p class="mt-2 uppercase tracking-[0.2em] text-[10px]">Cucina Tipica Bolognese d'Eccellenza</p>
+    <footer class="bg-luxury text-white/40 py-20 px-6 text-center border-t border-white/10">
+        <div class="text-3xl font-serif text-white tracking-[0.3em] mb-8">MELEGA</div>
+        <p class="max-w-xl mx-auto text-sm font-light leading-relaxed mb-10">
+            Eccellenza artigiana e passione per il Made in Italy nel cuore di Bologna dal 1980. Ogni passo con noi è una storia di eleganza.
+        </p>
+        <div class="flex justify-center space-x-8 text-xs uppercase tracking-widest mb-10">
+            <span>Instagram</span>
+            <span>Facebook</span>
+            <span>Google Business</span>
+        </div>
+        <p class="text-[10px] uppercase tracking-widest">&copy; 2024 Calzature Melega Bologna. Tutti i diritti riservati.</p>
     </footer>
 
 </body>
