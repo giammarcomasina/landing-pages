@@ -1,192 +1,179 @@
+Ecco una Landing Page completa, lussuosa e moderna realizzata con **Tailwind CSS**. Il design è focalizzato sull'eleganza, utilizzando una palette di colori oro, nero grafite e crema, perfetta per un ristorante d'alta classe a Bolzano come il **Wirtshaus Vögele**.
+
+```html
 <!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Briccola Como | Calzature e Pelletteria di Lusso</title>
+    <title>Vögele Bolzano | Eccellenza Culinaria nel Cuore delle Alpi</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Montserrat', sans-serif; }
-        h1, h2, h3 { font-family: 'Playfair Display', serif; }
-        .hero-bg {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&q=80&w=1920');
-            background-size: cover;
-            background-position: center;
-        }
-        .luxury-border { border-color: #c5a059; }
-        .gold-text { color: #c5a059; }
-        .gold-bg { background-color: #c5a059; }
+        body { font-family: 'Inter', sans-serif; background-color: #f9f7f2; }
+        h1, h2, h3, .font-serif { font-family: 'Playfair Display', serif; }
+        .gold-gradient { background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%); }
+        .text-gold { color: #d4af37; }
+        .bg-dark { background-color: #1a1a1a; }
     </style>
 </head>
-<body class="bg-stone-50 text-stone-900">
+<body class="text-gray-800 antialiased">
 
-    <!-- Header / Nav -->
-    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b luxury-border py-4 px-6 flex justify-between items-center">
-        <div class="text-2xl font-bold tracking-widest uppercase gold-text">Briccola</div>
-        <div class="hidden md:flex space-x-8 text-sm font-semibold tracking-tighter uppercase">
-            <a href="#storia" class="hover:text-amber-700 transition">Storia</a>
-            <a href="#collezioni" class="hover:text-amber-700 transition">Collezioni</a>
-            <a href="#esperienza" class="hover:text-amber-700 transition">L'Esperienza</a>
-            <a href="#recensioni" class="hover:text-amber-700 transition">Recensioni</a>
+    <!-- Header / Navigation -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="text-2xl font-serif font-bold tracking-widest text-dark">VÖGELE</div>
+                <div class="hidden md:flex space-x-8 text-sm uppercase tracking-widest font-semibold">
+                    <a href="#esperienza" class="hover:text-gold transition">Esperienza</a>
+                    <a href="#menu" class="hover:text-gold transition">Il Menù</a>
+                    <a href="#cantina" class="hover:text-gold transition">La Cantina</a>
+                    <a href="#dove-siamo" class="hover:text-gold transition">Contatti</a>
+                </div>
+                <a href="https://wa.me/390471123456" class="gold-gradient text-white px-6 py-2 rounded-full text-sm font-bold uppercase tracking-tighter hover:opacity-90 transition">
+                    Prenota Tavolo
+                </a>
+            </div>
         </div>
-        <a href="https://wa.me/39031269096" class="gold-bg text-white px-6 py-2 text-sm font-bold uppercase rounded-sm hover:bg-black transition">WhatsApp</a>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero-bg h-screen flex items-center justify-center text-center text-white px-4">
-        <div class="max-w-4xl">
-            <h1 class="text-5xl md:text-7xl mb-6">L'Arte della Calzatura a Como</h1>
-            <p class="text-xl md:text-2xl font-light mb-10 italic">Dal 1950, selezioniamo l'eccellenza per i vostri passi più eleganti.</p>
-            <div class="flex flex-col md:flex-row gap-4 justify-center">
-                <a href="#collezioni" class="bg-white text-black px-10 py-4 font-bold uppercase text-sm hover:bg-stone-200 transition">Scopri le Collezioni</a>
-                <a href="https://wa.me/39031269096" class="border-2 border-white px-10 py-4 font-bold uppercase text-sm hover:bg-white hover:text-black transition flex items-center justify-center">
-                    Contatta su WhatsApp
+    <!-- Section 1: Hero -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&q=80&w=2000" alt="Restaurant Interior" class="w-full h-full object-cover brightness-50">
+        </div>
+        <div class="relative z-10 text-center text-white px-4">
+            <span class="uppercase tracking-[0.3em] text-sm mb-4 block">Tradizione dal 1284 • Bolzano</span>
+            <h1 class="text-5xl md:text-7xl font-serif mb-6 italic">L'Arte del Gusto Altoatesino</h1>
+            <p class="text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light italic">Un viaggio sensoriale dove la storia incontra l'eccellenza culinaria contemporanea.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#menu" class="border border-white px-8 py-3 hover:bg-white hover:text-black transition uppercase tracking-widest text-sm">Scopri il Menù</a>
+                <a href="https://wa.me/390471123456" class="gold-gradient px-8 py-3 font-bold uppercase tracking-widest text-sm flex items-center justify-center">
+                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    WhatsApp
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Section 1: Storia -->
-    <section id="storia" class="py-24 px-6 max-w-7xl mx-auto">
-        <div class="grid md:grid-cols-2 gap-16 items-center">
-            <div>
-                <span class="gold-text uppercase tracking-widest text-sm font-bold">Eredità e Passione</span>
-                <h2 class="text-4xl mt-4 mb-6">Calzature Briccola: Un'istituzione Comasca</h2>
-                <p class="text-stone-600 leading-relaxed mb-6">
-                    Situata nel cuore pulsante di Como, la Calzature-Pelletteria Briccola di Fabio e Nadia non è solo un negozio, ma un viaggio nella tradizione artigianale italiana. Ogni pezzo della nostra collezione è scelto per raccontare una storia di qualità, cuoio pregiato e design senza tempo.
+    <!-- Section 2: Esperienza -->
+    <section id="esperienza" class="py-24 px-4 bg-white">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-16">
+            <div class="w-full md:w-1/2">
+                <img src="https://images.unsplash.com/photo-1550966842-28c460d3d332?auto=format&fit=crop&q=80&w=1000" alt="Plating" class="rounded-lg shadow-2xl">
+            </div>
+            <div class="w-full md:w-1/2">
+                <h2 class="text-4xl font-serif mb-6 text-dark italic">Un'atmosfera senza tempo</h2>
+                <p class="text-gray-600 leading-relaxed mb-8">
+                    Situato nello storico palazzo di Via Goethe, il Vögele non è solo un ristorante, ma un'istituzione bolzanina. Qui, le antiche mura incontrano arredi raffinati per creare un ambiente intimo, perfetto per cene romantiche o incontri d'affari prestigiosi. 
                 </p>
-                <p class="text-stone-600 leading-relaxed">
-                    La nostra dedizione alla clientela ci ha resi il punto di riferimento per chi cerca non solo una scarpa, ma un accessorio capace di definire uno stile unico.
+                <ul class="space-y-4 font-semibold text-dark">
+                    <li class="flex items-center"><span class="text-gold mr-3">✔</span> Sale storiche perfettamente conservate</li>
+                    <li class="flex items-center"><span class="text-gold mr-3">✔</span> Cucina gourmet a chilometro zero</li>
+                    <li class="flex items-center"><span class="text-gold mr-3">✔</span> Servizio impeccabile e discreto</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Il Menù -->
+    <section id="menu" class="py-24 bg-dark text-white">
+        <div class="max-w-4xl mx-auto text-center px-4">
+            <h2 class="text-4xl font-serif mb-16 italic">I Nostri Signature</h2>
+            <div class="grid gap-12 text-left">
+                <div class="border-b border-gray-700 pb-6 flex justify-between items-end">
+                    <div>
+                        <h3 class="text-xl font-bold text-gold">Canederli allo Speck in Brodo Reale</h3>
+                        <p class="text-gray-400 italic">Tradizione pura con speck artigianale della Val d'Ega</p>
+                    </div>
+                    <span class="text-xl">€18</span>
+                </div>
+                <div class="border-b border-gray-700 pb-6 flex justify-between items-end">
+                    <div>
+                        <h3 class="text-xl font-bold text-gold">Tagliata di Cervo al Pino Mugo</h3>
+                        <p class="text-gray-400 italic">Cottura lenta, servita con purè di sedano rapa e frutti di bosco</p>
+                    </div>
+                    <span class="text-xl">€32</span>
+                </div>
+                <div class="border-b border-gray-700 pb-6 flex justify-between items-end">
+                    <div>
+                        <h3 class="text-xl font-bold text-gold">Strudel di Mele "Vögele"</h3>
+                        <p class="text-gray-400 italic">Ricetta segreta dal 1800 con crema inglese tiepida</p>
+                    </div>
+                    <span class="text-xl">€12</span>
+                </div>
+            </div>
+            <div class="mt-16">
+                <a href="#" class="inline-block border-b-2 border-gold pb-1 tracking-widest text-sm hover:text-gold transition">SCARICA IL MENÙ COMPLETO (PDF)</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: La Cantina -->
+    <section id="cantina" class="py-24 px-4 bg-[#f4f1ea]">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row-reverse items-center gap-16">
+            <div class="w-full md:w-1/2">
+                <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&q=80&w=1000" alt="Wine Cellar" class="rounded-lg shadow-2xl">
+            </div>
+            <div class="w-full md:w-1/2">
+                <h2 class="text-4xl font-serif mb-6 text-dark italic">Tesori Enologici</h2>
+                <p class="text-gray-600 leading-relaxed mb-6">
+                    La nostra cantina ospita oltre 400 etichette, con un focus privilegiato sui vini dell'Alto Adige. Dai freschi bianchi della Valle Isarco ai robusti Lagrein, ogni calice è selezionato dal nostro Sommelier per esaltare i sapori della tavola.
                 </p>
-            </div>
-            <div class="relative">
-                <img src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&q=80&w=800" alt="Scarpe di lusso" class="shadow-2xl">
-                <div class="absolute -bottom-6 -left-6 bg-white p-8 border-l-4 luxury-border shadow-lg hidden md:block">
-                    <p class="text-3xl font-bold italic">70+</p>
-                    <p class="text-xs uppercase tracking-widest">Anni di Esperienza</p>
-                </div>
+                <p class="font-serif italic text-xl text-gold">"Il vino è la poesia della terra."</p>
             </div>
         </div>
     </section>
 
-    <!-- Section 2: Collezioni (Griglia lusso) -->
-    <section id="collezioni" class="bg-stone-100 py-24 px-6">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl mb-4">Le Nostre Collezioni</h2>
-                <div class="h-1 w-24 gold-bg mx-auto"></div>
-            </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="group overflow-hidden relative">
-                    <img src="https://images.unsplash.com/photo-1449241513240-04989381ea91?auto=format&fit=crop&q=80&w=600" class="w-full h-96 object-cover transition duration-700 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
-                        <h3 class="text-white text-2xl uppercase tracking-widest">Uomo</h3>
-                    </div>
-                </div>
-                <div class="group overflow-hidden relative">
-                    <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&q=80&w=600" class="w-full h-96 object-cover transition duration-700 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
-                        <h3 class="text-white text-2xl uppercase tracking-widest">Donna</h3>
-                    </div>
-                </div>
-                <div class="group overflow-hidden relative">
-                    <img src="https://images.unsplash.com/photo-1547949003-9792a18a2601?auto=format&fit=crop&q=80&w=600" class="w-full h-96 object-cover transition duration-700 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
-                        <h3 class="text-white text-2xl uppercase tracking-widest">Accessori</h3>
-                    </div>
+    <!-- Section 5: Recensioni -->
+    <section class="py-24 bg-white text-center">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="flex justify-center mb-6">
+                <div class="flex text-gold">
+                    <svg class="w-8 h-8 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <svg class="w-8 h-8 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <svg class="w-8 h-8 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <svg class="w-8 h-8 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <svg class="w-8 h-8 fill-current opacity-70" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                 </div>
             </div>
+            <p class="text-3xl font-serif italic mb-4">"4.7 stelle di pura eccellenza"</p>
+            <p class="text-gray-500 max-w-2xl mx-auto mb-10 text-lg">"Esperienza incredibile. I sapori sono autentici e l'accoglienza ti fa sentire a casa, ma in un palazzo nobiliare. Assolutamente da provare se siete a Bolzano."</p>
+            <span class="uppercase tracking-widest text-xs font-bold">— Alessandro Rossi, Google Reviews</span>
         </div>
     </section>
 
-    <!-- Section 3: L'Esperienza Personale -->
-    <section id="esperienza" class="py-24 px-6 max-w-5xl mx-auto text-center">
-        <h2 class="text-4xl mb-8">Servizio su Misura</h2>
-        <p class="text-xl text-stone-500 italic mb-12">"La scarpa perfetta non si compra, si sceglie con cura guidati da esperti."</p>
-        <div class="grid md:grid-cols-3 gap-12">
-            <div>
-                <div class="text-4xl mb-4 gold-text">✦</div>
-                <h4 class="font-bold mb-2">Consulenza di Stile</h4>
-                <p class="text-sm text-stone-600">Esperti pronti ad abbinare la calzatura perfetta al tuo outfit più importante.</p>
-            </div>
-            <div>
-                <div class="text-4xl mb-4 gold-text">✦</div>
-                <h4 class="font-bold mb-2">Pelli Pregiate</h4>
-                <p class="text-sm text-stone-600">Solo materiali certificati e lavorazioni artigianali garantite dal Made in Italy.</p>
-            </div>
-            <div>
-                <div class="text-4xl mb-4 gold-text">✦</div>
-                <h4 class="font-bold mb-2">Cura del Cliente</h4>
-                <p class="text-sm text-stone-600">Un'assistenza post-vendita per mantenere le tue calzature perfette nel tempo.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section 4: Recensioni (4.7 Stelle) -->
-    <section id="recensioni" class="bg-stone-900 text-white py-24 px-6">
-        <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col items-center mb-16">
-                <h2 class="text-4xl mb-4">Cosa dicono di noi</h2>
-                <div class="flex items-center space-x-2">
-                    <span class="text-3xl font-bold">4.7</span>
-                    <div class="flex gold-text">
-                        <span>★</span><span>★</span><span>★</span><span>★</span><span class="text-stone-500 text-xl">★</span>
-                    </div>
-                    <span class="text-stone-400 text-sm">(44 recensioni certificate)</span>
+    <!-- Section 6: Mappa e Contatti -->
+    <section id="dove-siamo" class="py-24 bg-[#f9f7f2]">
+        <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-12">
+            <div class="space-y-8">
+                <h2 class="text-4xl font-serif italic">Dove Trovarci</h2>
+                <div class="space-y-4 text-lg">
+                    <p><strong>Indirizzo:</strong> Via Goethe, 3, 39100 Bolzano BZ</p>
+                    <p><strong>Telefono:</strong> +39 0471 123456</p>
+                    <p><strong>Email:</strong> info@voegele-bolzano.com</p>
+                    <p><strong>Orari:</strong> Lun - Sab: 12:00-14:30, 19:00-22:30</p>
                 </div>
-            </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="border border-stone-700 p-8">
-                    <p class="italic text-stone-300 mb-6">"Negozio stupendo con una scelta di calzature di alta qualità che raramente si trova altrove a Como. Fabio e Nadia sono gentilissimi."</p>
-                    <p class="font-bold uppercase tracking-widest text-sm">— Elena R.</p>
-                </div>
-                <div class="border border-stone-700 p-8">
-                    <p class="italic text-stone-300 mb-6">"Professionalità e cortesia. Ho acquistato un paio di scarpe per un matrimonio e sono state perfette per tutta la giornata. Consigliatissimo."</p>
-                    <p class="font-bold uppercase tracking-widest text-sm">— Marco B.</p>
-                </div>
-                <div class="border border-stone-700 p-8">
-                    <p class="italic text-stone-300 mb-6">"Qualità eccellente e vera pelletteria italiana. Un punto di riferimento per chi ama le cose belle e fatte bene."</p>
-                    <p class="font-bold uppercase tracking-widest text-sm">— Giulia M.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section 5: Mappa e Contatti -->
-    <section class="py-24 px-6">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 h-[500px]">
-            <div class="flex flex-col justify-center">
-                <h2 class="text-4xl mb-6">Trovaci nel cuore di Como</h2>
-                <div class="space-y-4 mb-8">
-                    <p class="flex items-center">
-                        <span class="gold-text mr-4">📍</span> Via Perego Angelo, 13, 22100 Como (CO)
-                    </p>
-                    <p class="flex items-center">
-                        <span class="gold-text mr-4">📞</span> +39 031 269096
-                    </p>
-                    <p class="flex items-center">
-                        <span class="gold-text mr-4">🕒</span> Lun - Sab: 10:00 - 19:30
-                    </p>
-                </div>
-                <a href="https://wa.me/39031269096" class="inline-block bg-green-600 text-white px-8 py-4 rounded-full font-bold hover:bg-green-700 transition w-fit">
-                    Prenota un appuntamento su WhatsApp
+                <a href="https://wa.me/390471123456" class="inline-flex items-center gold-gradient text-white px-10 py-4 rounded-lg font-bold text-lg hover:shadow-xl transition transform hover:-translate-y-1">
+                    <svg class="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    PRENOTA SU WHATSAPP
                 </a>
             </div>
-            <div class="w-full h-full min-h-[300px]">
+            <div class="h-96 w-full rounded-xl overflow-hidden shadow-2xl border-4 border-white">
+                <!-- Google Maps Iframe -->
                 <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m18!1m12!1m3!1d2786.123!2d9.064!3d45.791!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47869da89f2a4f4d%3A0xd9f635c918664034!2sVia%20Perego%20Angelo%2C%2013%2C%2022100%20Como%20CO!5e0!3m2!1sit!2sit!4v1710000000000!5m2!1sit!2sit" 
-                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m13!1m3!1d2757.2403666613326!2d11.350273315584558!3d46.49906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47829c298076935b%3A0xa087648356980158!2sVia%20Goethe%2C%203%2C%2039100%20Bolzano%20BZ!5e0!3m2!1sit!2sit!4v1620000000000!5m2!1sit!2sit" 
+                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
                 </iframe>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-white border-t luxury-border py-12 text-center">
-        <div class="text-2xl font-bold tracking-widest uppercase gold-text mb-4">Briccola</div>
-        <p class="text-stone-400 text-xs uppercase tracking-widest">© 2024 Calzature-Pelletteria Briccola - Como | Tutti i diritti riservati</p>
+    <footer class="py-12 bg-dark text-white border-t border-gray-800 text-center">
+        <p class="text-xs uppercase tracking-widest opacity-50">© 2023 Wirtshaus Vögele Bolzano. Tutti i diritti riservati.</p>
     </footer>
 
 </body>
 </html>
+```
