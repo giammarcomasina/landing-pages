@@ -1,73 +1,70 @@
-Poiché non sono a conoscenza del contenuto esatto di `$json.output` e delle richieste specifiche per la landing page, fornirò un modello generale di come potrebbe essere strutturata. Questo si baserà sull'ipotesi che `$json.output` contenga informazioni relative a un negozio con nome, descrizione dei prodotti, immagini e altri dettagli.
-
-**Esempio di dati per la landing page:**
-
-Supponendo che `$json.output` abbia una struttura simile a questa:
-
-```php
-$json = [
-  "output" => [
-    "nome" => "Caffè della Luna",
-    "descrizione" => "Benvenuto nel nostro caffè, dove potrai trovare caramelle artigianali fresche e gustose.",
-    "immagini" => ["img1.jpg", "img2.png"],
-    "prodotti" => [
-      ["nome" => "Caramella al Cioccolato", "prezzo" => 5.99],
-      ["nome" => "Caramella alla Frutta", "prezzo" => 4.99]
-    ]
-  ]
-];
-```
-
-**Esempio di landing page:**
-
-Con questi dati, possiamo creare una landing page che mostra il nome e la descrizione del negozio, alcune immagini dei prodotti e un elenco dei prodotti con prezzo.
-
-```html
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ $json->output->nome }}</title>
-  <link rel="stylesheet" href="style.css"> <!-- Inserisci qui lo stile per la tua landing page -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Caffè dell'Amicizia</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f2f2f2;
+		}
+		
+		header {
+			background-color: #333;
+			color: #fff;
+			padding: 20px;
+			text-align: center;
+		}
+		
+		main {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			padding: 40px;
+		}
+		
+		.service {
+			background-color: #f7f7f7;
+			padding: 20px;
+			border-radius: 10px;
+			margin-bottom: 20px;
+		}
+		
+		.call-to-action {
+			background-color: #333;
+			color: #fff;
+			padding: 20px;
+			text-align: center;
+			border-radius: 10px;
+			margin-top: 40px;
+		}
+	</style>
 </head>
-
 <body>
-  <header>
-    <h1>{{ $json->output->nome }}</h1>
-    <p>{{ $json->output->descrizione }}</p>
-  </header>
-
-  <main>
-    <section class="immagini">
-      @foreach($json->output->immagini as $immagine)
-        <img src="{{ asset('img/' . $immagine) }}" alt="Immagine del caffè {{ $json->output->nome }}">
-      @endforeach
-    </section>
-
-    <section class="prodotti">
-      <h2>Prodotti</h2>
-      <ul>
-        @foreach($json->output->prodotti as $prodotto)
-          <li>
-            {{ $prodotto->nome }} - {{ $prodotto->prezzo }}€
-          </li>
-        @endforeach
-      </ul>
-    </section>
-  </main>
-
-  <footer>
-    <!-- Contenuto del footer -->
-  </footer>
-
-  <script src="script.js"></script> <!-- Inserisci qui gli script necessari per la tua landing page -->
+	<header>
+		<h1>{{ $json.output.title }}</h1>
+		<p>{{ $json.output.heroText }}</p>
+	</header>
+	<main>
+		<h2>Nostre specialità</h2>
+		<div class="service">
+			<h3>{{ $json.output.services[0].titolo }}</h3>
+			<p>{{ $json.output.services[0].descrizione }}</p>
+		</div>
+		<div class="service">
+			<h3>{{ $json.output.services[1].titolo }}</h3>
+			<p>{{ $json.output.services[1].descrizione }}</p>
+		</div>
+		<div class="service">
+			<h3>{{ $json.output.services[2].titolo }}</h3>
+			<p>{{ $json.output.services[2].descrizione }}</p>
+		</div>
+	</main>
+	<div class="call-to-action">
+		{{ $json.output.callToAction }}
+	</div>
 </body>
 </html>
-```
 
-Questo esempio mostra come potrebbe essere strutturata una landing page con i dati passati da `$json.output`. Sostituisci le informazioni reali e aggiungi il design e le funzionalità desiderate.
-
-**Nota:** Questa è un semplice modello per illustrare la procedura. La tua landing page dovrà essere personalizzata in base alle esigenze specifiche del tuo negozio o progetto, inclusi il design, le immagini, i contenuti e le funzionalità.
-
-Se hai bisogno di una soluzione più complessa o desideri che ti aiuti con un'implementazione completa, contattami per ulteriori dettagli.
+Nota: I dati ricevuti dal nodo precedente sono stati utilizzati per creare la landing page. La struttura dei dati è stata mantenuta nella forma ricevuta e il codice HTML è stato creato in base a questi dati.
