@@ -1,58 +1,92 @@
-Suppongo che i dati ricevuti siano stati elaborati correttamente e che ora abbiamo un array di dati che potrebbe essere utilizzato per creare una landing page.
+Ecco il codice HTML e CSS per la Landing Page completa:
 
-Ecco un esempio di come potremmo elaborare i dati e creare una landing page:
-```php
-{!! $json->output !!}
-```
-Questo codice utilizzerà il motore di templating Blade per visualizzare i dati dell'array `$json->output` nella pagina web.
-
-Suppongo che l'array `$json->output` sia strutturato in questo modo:
-```php
-[
-    {
-        "nome": "Azienda 1",
-        "descrizione": "Descrizione dell'Azienda 1",
-        "immagine": "url-immagine-azienda-1.jpg"
-    },
-    {
-        "nome": "Azienda 2",
-        "descrizione": "Descrizione dell'Azienda 2",
-        "immagine": "url-immagine-azienda-2.jpg"
-    }
-]
-```
-In questo caso, il codice `!! $json->output !!` visualizzerà la lista delle aziende con le loro descrizioni e immagini.
-
-Per creare una landing page più complessa, potremmo utilizzare un framework di design web come Tailwind CSS per stile e layout.
-
-Ecco un esempio di come potremmo creare una landing page utilizzando Tailwind CSS:
 ```html
 <!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Landing Page</title>
+    <title>Domina il gioco con i PC di PC Quadro Roma</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body>
-    <header class="bg-gray-800 text-white py-4 px-6">
-        <h1 class="text-3xl font-bold">Aziende di Pianoro</h1>
-    </header>
-    <main class="container mx-auto p-4">
-        <section class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-            @foreach($json->output as $azienda)
-                <article class="bg-white rounded shadow-md p-4">
-                    <h2 class="text-lg font-bold">{{ $azienda->nome }}</h2>
-                    <p class="text-gray-600">{{ $azienda->descrizione }}</p>
-                    <img src="{{ $azienda->immagine }}" alt="Immagine dell'Azienda" class="w-full h-auto">
-                </article>
-            @endforeach
-        </section>
-    </main>
+
+<!-- Sezione Hero -->
+<section class="bg-gray-200 p-12 text-center">
+    <h1 class="text-5xl font-bold mb-4">{{ $json.output.Headline }}</h1>
+    <p class="text-lg mb-8">{{ $json.output.HeroText }}</p>
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Scopri di più</button>
+</section>
+
+<!-- Sezione Servizi -->
+<section class="p-12">
+    <h2 class="text-3xl font-bold mb-4">Servizi</h2>
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-3 lg:grid-cols-4">
+        @foreach($json.output.Servizi as $servizio)
+            <article class="bg-white p-8 rounded-lg shadow-md hover:bg-gray-100">
+                <h3 class="text-xl font-bold mb-2">{{ $servizio.Titolo }}</h3>
+                <p>{{ $servizio.Descrizione }}</p>
+            </article>
+        @endforeach
+    </div>
+</section>
+
+<!-- Sezione Recensioni -->
+<section class="bg-gray-200 p-12 text-center">
+    <h2 class="text-3xl font-bold mb-4">Cosa dicono i nostri clienti?</h2>
+    <div class="flex justify-center mb-8">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" class="w-8 h-8 text-gray-500 mr-4" viewBox="https://d33v2b9wmqa1ld.cloudfront.net/8d8/6e1e2b43c5f2a5a3b3d7f2d78fe88dd3db6a7da.svg">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7z"></path>
+        </svg>
+    </div>
+    <p class="text-lg mb-8">4.7/5 stelle</p>
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Leggi le recensioni</button>
+</section>
+
+<!-- Sezione Contatti -->
+<section class="bg-gray-200 p-12 text-center">
+    <h2 class="text-3xl font-bold mb-4">Contattaci!</h2>
+    <p class="text-lg mb-8">Per qualsiasi informazione o richiesta, contattaci su WhatsApp!</p>
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onclick="window.location.href='https://wa.me/12345678901'">Contatta su WhatsApp</button>
+</section>
+
+<!-- Sezione Mappa -->
+<section class="bg-gray-200 p-12">
+    <h2 class="text-3xl font-bold mb-4">Trova la nostra sede!</h2>
+    <div class="mb-8" style="height: 400px; width: 100%; margin: auto;">
+        <iframe src="https://www.google.com/maps/embed?pb=!1s0x876f6d7b9c5e4f%3B13.4183514,42.1017614!2e5!3i10!3p1!3m2!1i1024!2i768!4f13.1&amp;output=embed" width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen></iframe>
+    </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.js"></script>
 </body>
 </html>
 ```
-Questo codice crea una landing page con un layout e stile personalizzati utilizzando Tailwind CSS.
 
-Spero che questo esempio ti sia stato utile! Se hai altre domande o richieste, non esitare a chiedere.
+Ecco il CSS per la Landing Page:
+
+```css
+/* 
+ * Tailwind CSS Configuration File
+ *
+ * Feel free to customize this file to fit your needs.
+ */
+
+// Colors
+@tailwind base;
+@tailwind components;
+
+// Utilities
+@tailwind utilities;
+
+// Layout
+.layout {
+    @apply flex justify-center items-center h-screen;
+}
+
+.layout-container {
+    @apply w-full max-w-lg mx-auto p-8 text-gray-900;
+}
+```
+
+Nota che il codice sopra utilizza Tailwind CSS per la gestione dello stile. Se desideri personalizzare lo stile, puoi modificare i file `tailwind.config.js` e `postcss.config.js`.
