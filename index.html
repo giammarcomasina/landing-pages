@@ -1,92 +1,768 @@
-Ecco il codice HTML e CSS per la Landing Page completa:
-
-```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Domina il gioco con i PC di PC Quadro Roma</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Autofficina Milani | Landing demo</title>
+  <meta name="description" content="Landing demo con tre modelli selezionabili per Autofficina Milani, completa di immagini e animazioni." />
+    <style>
+    :root {
+      --blue: #0A2463;
+      --blue-light: #1A3A7A;
+      --gold: #D4AF37;
+      --gold-light: #F0D060;
+      --white: #ffffff;
+      --off-white: #F8F9FD;
+      --text: #1A1A2E;
+      --text-muted: #555;
+      --shadow: 0 18px 48px rgba(10,36,99,.14);
+      --border: rgba(10,36,99,.12);
+      --hero-image: url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1600&q=80');
+      --service-image-1: url('https://images.unsplash.com/photo-1613214149922-f1809c99b414?auto=format&fit=crop&w=900&q=80');
+      --service-image-2: url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=80');
+      --service-image-3: url('https://images.unsplash.com/photo-1489824904134-891ab64532f1?auto=format&fit=crop&w=900&q=80');
+      --why-image: url('https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=1200&q=80');
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      display: block;
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--white);
+      overflow-x: hidden;
+      line-height: 1.6;
+      transition: background .35s ease, color .35s ease, padding .35s ease;
+    }
+
+    img, svg { display: block; max-width: 100%; }
+    a { color: inherit; }
+
+    .container {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(10,36,99,.96);
+      backdrop-filter: blur(12px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      height: 70px;
+      border-bottom: 2px solid var(--gold);
+      transition: all .35s ease;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .logo-text { display: block; }
+    .logo-title {
+      display: block;
+      color: #fff;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    .logo-sub {
+      display: block;
+      color: var(--gold);
+      font-size: .75rem;
+    }
+
+    .navbar nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      transition: all .3s ease;
+    }
+
+    .navbar nav a {
+      color: rgba(255,255,255,.85);
+      text-decoration: none;
+      font-size: .92rem;
+      font-weight: 600;
+      transition: color .2s ease;
+    }
+
+    .navbar nav a:hover { color: var(--gold); }
+
+    .btn, .btn-nav {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 20px;
+      border-radius: 999px;
+      font-weight: 800;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
+      min-height: 46px;
+    }
+
+    .btn:hover, .btn-nav:hover { transform: translateY(-2px); }
+    .btn-nav, .btn-primary {
+      background: var(--gold);
+      color: var(--blue);
+      box-shadow: 0 10px 24px rgba(212,175,55,.24);
+    }
+
+    .btn-outline {
+      color: var(--blue);
+      background: rgba(255,255,255,.8);
+      border: 1px solid rgba(10,36,99,.16);
+    }
+
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      display: grid;
+      place-items: center;
+      padding-top: 70px;
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(10,36,99,.05), rgba(10,36,99,.02));
+    }
+
+    .hero-img,
+    .hero-overlay {
+      display: none;
+    }
+
+    .hero-grid {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.08fr .92fr;
+      align-items: center;
+      gap: 28px;
+      padding: 56px 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 720px;
+      animation: rise .8s ease both;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 18px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(212,175,55,.14);
+      border: 1px solid rgba(212,175,55,.35);
+      color: var(--blue);
+      font-size: .76rem;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .hero-content h1 {
+      color: var(--blue);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: clamp(2.6rem, 5vw, 4.9rem);
+      line-height: 1.05;
+      margin-bottom: 16px;
+      text-wrap: balance;
+    }
+
+    .hero-content p {
+      font-size: 1.08rem;
+      color: var(--text-muted);
+      max-width: 58ch;
+    }
+
+    .hero-btns {
+      display: flex;
+      flex-direction: row;
+      gap: 14px;
+      margin-top: 28px;
+      flex-wrap: wrap;
+    }
+
+    .hero-side {
+      animation: rise .9s ease .08s both;
+    }
+
+    .quick-card {
+      background: linear-gradient(180deg, rgba(255,255,255,.98), rgba(246,248,252,.94));
+      border: 1px solid var(--border);
+      border-radius: 26px;
+      padding: 26px;
+      box-shadow: var(--shadow);
+    }
+
+    .quick-card h3 {
+      color: var(--blue);
+      margin-bottom: 18px;
+      font-size: 1.1rem;
+    }
+
+    .quick-list {
+      display: grid;
+      gap: 16px;
+    }
+
+    .quick-list strong {
+      color: var(--blue);
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .section {
+      padding: 86px 0;
+    }
+
+    .section-header {
+      margin-bottom: 34px;
+      max-width: 760px;
+    }
+
+    .section-header.center { text-align: center; margin-inline: auto; }
+
+    .section-label {
+      display: inline-block;
+      color: var(--gold);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .section-header h2 {
+      color: var(--blue);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: clamp(2rem, 3vw, 3.1rem);
+      line-height: 1.08;
+      margin-bottom: 12px;
+    }
+
+    .section-header p { color: var(--text-muted); }
+
+    .info-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      background: var(--blue);
+      border-top: 2px solid var(--gold);
+      border-bottom: 2px solid var(--gold);
+      color: #fff;
+    }
+
+    .info-item {
+      padding: 24px 5%;
+      border-right: 1px solid rgba(255,255,255,.12);
+    }
+
+    .info-item:last-child { border-right: none; }
+    .info-item strong { color: var(--gold-light); display: block; margin-bottom: 4px; }
+
+    .services {
+      background: var(--off-white);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 14px 34px rgba(10,36,99,.10);
+      border-top: 4px solid var(--gold);
+      transform: translateY(0);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 44px rgba(10,36,99,.14);
+    }
+
+    .card-media {
+      height: 220px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .card-body { padding: 22px; }
+    .card-icon { font-size: 1.6rem; margin-bottom: 10px; }
+    .card h3 { color: var(--blue); margin-bottom: 8px; font-size: 1.18rem; }
+    .card p { color: var(--text-muted); }
+
+    .why {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .why-img-wrap {
+      border-radius: 28px;
+      overflow: hidden;
+      min-height: 420px;
+      position: relative;
+      box-shadow: var(--shadow);
+    }
+
+    .why-img {
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(10,36,99,.18), rgba(10,36,99,.22)), var(--why-image);
+      background-size: cover;
+      background-position: center;
+      transform: scale(1.02);
+      animation: zoomSlow 14s ease-in-out infinite alternate;
+    }
+
+    .why-text {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 32px;
+      box-shadow: var(--shadow);
+    }
+
+    .gold { color: var(--gold); }
+
+    .check-list {
+      list-style: none;
+      display: grid;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .check-list li {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      color: var(--text);
+    }
+
+    .check {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(212,175,55,.16);
+      color: var(--blue);
+      font-weight: 800;
+      flex: 0 0 28px;
+      margin-top: 2px;
+    }
+
+    .contact {
+      padding: 82px 0;
+      background: linear-gradient(180deg, #fff, #f8f9fd);
+      text-align: center;
+    }
+
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      max-width: 1100px;
+      margin: 28px auto 0;
+    }
+
+    .contact-card {
+      background: #fff;
+      border-radius: 24px;
+      padding: 24px;
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 30px rgba(10,36,99,.08);
+    }
+
+    .contact-card h4 { color: var(--blue); margin-bottom: 8px; font-size: 1.08rem; }
+    .contact-card p, .contact-card a { color: var(--text-muted); text-decoration: none; }
+
+    .cta-wrap {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 26px;
+    }
+
+    .footer {
+      background: var(--blue);
+      color: rgba(255,255,255,.85);
+      text-align: center;
+      padding: 26px 16px;
+      border-top: 2px solid var(--gold);
+    }
+
+    #lsw {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      z-index: 9999;
+      min-width: 230px;
+      background: rgba(10,36,99,.97);
+      border: 2px solid #D4AF37;
+      border-radius: 16px;
+      padding: 16px 18px;
+      box-shadow: 0 12px 40px rgba(0,0,0,.35);
+      backdrop-filter: blur(12px);
+      transition: background .35s ease, border-color .35s ease;
+    }
+
+    #lsl {
+      color: #D4AF37;
+      font-size: .68rem;
+      font-weight: 800;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+
+    #lsb {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .lb {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255,255,255,.07);
+      color: rgba(255,255,255,.75);
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 10px;
+      padding: 11px 14px;
+      cursor: pointer;
+      transition: all .2s ease;
+      font-family: inherit;
+      text-align: left;
+    }
+
+    .lb:hover {
+      background: rgba(212,175,55,.25);
+      border-color: #D4AF37;
+      color: #fff;
+    }
+
+    .lb.on {
+      background: #D4AF37;
+      border-color: #D4AF37;
+      color: #0A2463;
+    }
+
+    .ln { font-size: .86rem; font-weight: 800; }
+    .ls { font-size: .72rem; opacity: .78; }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes zoomSlow {
+      from { transform: scale(1.02); }
+      to { transform: scale(1.10); }
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid, .cards, .why, .contact-wrap, .info-strip {
+        grid-template-columns: 1fr;
+      }
+      .navbar {
+        position: sticky;
+        height: auto;
+        padding: 14px 5%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+      .navbar nav { flex-wrap: wrap; gap: 14px; }
+      .hero { min-height: auto; }
+      .hero-grid { padding: 36px 0 50px; }
+      #lsw { left: 16px; right: 16px; bottom: 16px; min-width: auto; }
+    }
+  </style>
 </head>
 <body>
+  <header class="navbar">
+    <a class="logo" href="#top" aria-label="Autofficina Milani home">
+      <svg width="56" height="44" viewBox="0 0 56 44" fill="none" aria-hidden="true">
+        <path d="M8 28 L14 21 C16 18.5 19 16.5 22.5 16.2 L31.5 15.2 C34.6 14.9 37.5 15.8 39.9 17.9 L45.5 23 H49.2 C51.3 23 53 24.7 53 26.8 V29.2 C53 31.3 51.3 33 49.2 33 H47.5 C46.9 35.5 44.7 37.3 42 37.3 C39.3 37.3 37.1 35.5 36.5 33 H20.5 C19.9 35.5 17.7 37.3 15 37.3 C12.3 37.3 10.1 35.5 9.5 33 H8.8 C6.7 33 5 31.3 5 29.2 V29 C5 28.4 5.4 28 6 28 H8 Z" stroke="#D4AF37" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path d="M18 21.8 H33.5" stroke="#D4AF37" stroke-width="2.4" stroke-linecap="round"></path>
+        <circle cx="15" cy="32" r="3.2" fill="#D4AF37"></circle>
+        <circle cx="42" cy="32" r="3.2" fill="#D4AF37"></circle>
+      </svg>
+      <span class="logo-text">
+        <span class="logo-title">Autofficina Milani</span>
+        <span class="logo-sub">Pianoro · Bologna</span>
+      </span>
+    </a>
+    <nav>
+      <a href="#servizi">Servizi</a>
+      <a href="#contatti" class="btn-nav">Contattaci</a>
+    </nav>
+  </header>
 
-<!-- Sezione Hero -->
-<section class="bg-gray-200 p-12 text-center">
-    <h1 class="text-5xl font-bold mb-4">{{ $json.output.Headline }}</h1>
-    <p class="text-lg mb-8">{{ $json.output.HeroText }}</p>
-    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Scopri di più</button>
-</section>
+  <main id="top">
+    <section class="hero">
+      <div class="hero-img" aria-hidden="true"></div>
+      <div class="hero-overlay" aria-hidden="true"></div>
+      <div class="hero-grid">
+        <div class="hero-content">
+          <span class="badge">OFFICINA AUTO A PIANORO</span>
+          <h1>Manutenzione chiara,<br>diagnosi rapide.</h1>
+          <p>Assistenza concreta per la tua auto. Dal 1990 al tuo fianco con interventi ordinari e straordinari, comunicazione trasparente e un’officina vicina quando serve davvero.</p>
+          <div class="hero-btns">
+            <a class="btn btn-primary" href="tel:051777419">📞 Chiama ora</a>
+            <a class="btn btn-outline" href="#servizi">Scopri i servizi</a>
+          </div>
+        </div>
+        <aside class="hero-side quick-card">
+          <h3>Informazioni rapide</h3>
+          <div class="quick-list">
+            <div><strong>📍 Via del Lavoro, 12</strong><span>40065 Pianoro (BO)</span></div>
+            <div><strong>📞 051 777419</strong><span>Chiamaci subito</span></div>
+            <div><strong>🕐 Lun–Ven</strong><span>08:30–12:30 / 14:00–18:00</span></div>
+          </div>
+        </aside>
+      </div>
+    </section>
 
-<!-- Sezione Servizi -->
-<section class="p-12">
-    <h2 class="text-3xl font-bold mb-4">Servizi</h2>
-    <div class="grid grid-cols-1 gap-8 md:grid-cols-3 lg:grid-cols-4">
-        @foreach($json.output.Servizi as $servizio)
-            <article class="bg-white p-8 rounded-lg shadow-md hover:bg-gray-100">
-                <h3 class="text-xl font-bold mb-2">{{ $servizio.Titolo }}</h3>
-                <p>{{ $servizio.Descrizione }}</p>
-            </article>
-        @endforeach
+    <section class="info-strip reveal">
+      <div class="info-item"><strong>Esperienza</strong><span>Attivi dal 1990 con assistenza su più marche.</span></div>
+      <div class="info-item"><strong>Metodo</strong><span>Preventivo chiaro prima di ogni intervento.</span></div>
+      <div class="info-item"><strong>Zona servita</strong><span>Pianoro, Bologna e comuni limitrofi.</span></div>
+    </section>
+
+    <section id="servizi" class="section services">
+      <div class="container">
+        <div class="section-header center reveal">
+          <span class="section-label">Cosa facciamo</span>
+          <h2>I nostri servizi</h2>
+          <p>La demo mantiene le tre varianti di stile e include anche immagini di supporto e micro-animazioni nelle sezioni principali.</p>
+        </div>
+        <div class="cards">
+          <article class="card reveal">
+            <div class="card-media" style="background-image: var(--service-image-1);"></div>
+            <div class="card-body">
+              <div class="card-icon">🔧</div>
+              <h3>Tagliandi & Manutenzione</h3>
+              <p>Interventi ordinari e straordinari con ricambi certificati e preventivo chiaro prima di ogni lavoro.</p>
+            </div>
+          </article>
+          <article class="card reveal">
+            <div class="card-media" style="background-image: var(--service-image-2);"></div>
+            <div class="card-body">
+              <div class="card-icon">🔍</div>
+              <h3>Diagnosi & Guasti</h3>
+              <p>Strumentazione elettronica avanzata per anomalie e problemi improvvisi, con tempi di risposta rapidi.</p>
+            </div>
+          </article>
+          <article class="card reveal">
+            <div class="card-media" style="background-image: var(--service-image-3);"></div>
+            <div class="card-body">
+              <div class="card-icon">🏛️</div>
+              <h3>Officina Locale</h3>
+              <p>Un punto di riferimento per Pianoro, Bologna e i comuni limitrofi, con puntualità e cortesia.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container why">
+        <div class="why-img-wrap reveal"><div class="why-img"></div></div>
+        <div class="why-text reveal">
+          <span class="section-label">Perché sceglierci</span>
+          <h2>Fiducia costruita <span class="gold">nel tempo</span></h2>
+          <p>La struttura riprende anche la sezione visuale “Perché sceglierci”, con immagine laterale e blocco testuale più forte, come nella demo originale.[page:1]</p>
+          <ul class="check-list">
+            <li><span class="check">✓</span><span>Preventivo sempre prima dei lavori.</span></li>
+            <li><span class="check">✓</span><span>Esperienza pluriennale su tutte le marche.</span></li>
+            <li><span class="check">✓</span><span>Ricambi originali e compatibili certificati.</span></li>
+            <li><span class="check">✓</span><span>Posizione comoda, facile da raggiungere.</span></li>
+          </ul>
+          <div class="cta-wrap" style="justify-content:flex-start;">
+            <a class="btn btn-primary" href="tel:051777419">📞 051 777419</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contatti" class="contact reveal">
+      <div class="container">
+        <div class="section-header center">
+          <span class="section-label">Siamo qui per te</span>
+          <h2>Vieni a trovarci</h2>
+          <p>Contatti, orari e accesso rapido a chiamata e WhatsApp restano presenti in tutte e tre le varianti di layout.[page:1]</p>
+        </div>
+        <div class="contact-wrap">
+          <article class="contact-card">
+            <h4>📍 Indirizzo</h4>
+            <p>Via del Lavoro, 12<br>40065 Pianoro (BO)</p>
+          </article>
+          <article class="contact-card">
+            <h4>📞 Telefono</h4>
+            <p><a href="tel:051777419">051 777419</a></p>
+          </article>
+          <article class="contact-card">
+            <h4>🕐 Orari</h4>
+            <p>Lun–Ven<br>08:30–12:30 / 14:00–18:00</p>
+          </article>
+        </div>
+        <div class="cta-wrap">
+          <a class="btn btn-primary" href="tel:051777419">📞 Chiama ora</a>
+          <a class="btn btn-outline" href="https://wa.me/39051777419" target="_blank" rel="noopener noreferrer">💬 WhatsApp</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">© 2026 Autofficina Milani S.n.c. — Via del Lavoro 12, 40065 Pianoro (BO)</footer>
+
+  <div id="lsw" aria-label="Selettore layout">
+    <div id="lsl">⚙️ Scegli layout</div>
+    <div id="lsb">
+      <button class="lb on" data-i="0"><span class="ln">🔵 Navy & Gold</span><span class="ls">Classico</span></button>
+      <button class="lb" data-i="1"><span class="ln">⚫ Dark Sidebar</span><span class="ls">Premium</span></button>
+      <button class="lb" data-i="2"><span class="ln">⚪ Minimal Light</span><span class="ls">Moderno</span></button>
     </div>
-</section>
+  </div>
 
-<!-- Sezione Recensioni -->
-<section class="bg-gray-200 p-12 text-center">
-    <h2 class="text-3xl font-bold mb-4">Cosa dicono i nostri clienti?</h2>
-    <div class="flex justify-center mb-8">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" class="w-8 h-8 text-gray-500 mr-4" viewBox="https://d33v2b9wmqa1ld.cloudfront.net/8d8/6e1e2b43c5f2a5a3b3d7f2d78fe88dd3db6a7da.svg">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7z"></path>
-        </svg>
-    </div>
-    <p class="text-lg mb-8">4.7/5 stelle</p>
-    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Leggi le recensioni</button>
-</section>
+  <script>
+    const layoutCSS = {
+      0: `
+        body{display:block;margin:0;padding-left:0;background:var(--white);color:var(--text)}
+        .navbar{position:fixed;top:0;left:0;width:100%;height:70px;flex-direction:row;padding:0 5%;border-bottom:2px solid var(--gold);border-right:none;background:rgba(10,36,99,.96)}
+        .navbar nav{display:flex;flex-direction:row;gap:24px;align-items:center}
+        .hero{min-height:100vh;background:linear-gradient(180deg,rgba(10,36,99,.05),rgba(10,36,99,.02));padding-top:70px}
+        .hero-img,.hero-overlay{display:none}
+        .hero-grid{grid-template-columns:1.08fr .92fr}
+        .hero-content{padding:0;text-align:left;max-width:720px}
+        .hero-btns{flex-direction:row;justify-content:flex-start}
+        .cards{grid-template-columns:repeat(3,1fr)}
+        .card{display:block;border-top:4px solid var(--gold);border-left:none;background:#fff}
+        .card-media{display:block;height:220px}
+        .why{grid-template-columns:1fr 1fr}
+        .why-img-wrap{display:block;min-height:420px}
+        .why-text{background:#fff;padding:32px}
+        .info-strip{display:grid;grid-template-columns:repeat(3,1fr);background:var(--blue);border-top:2px solid var(--gold);border-bottom:2px solid var(--gold)}
+        .info-item{border-right:1px solid rgba(255,255,255,.12);border-bottom:none;padding:24px 5%}
+        .contact{text-align:center;background:linear-gradient(180deg,#fff,#f8f9fd);padding:82px 0}
+        .contact-wrap{grid-template-columns:repeat(3,1fr);max-width:1100px}
+        .cta-wrap{justify-content:center}
+        .section-header{text-align:center}
+        .section-header.center{text-align:center}
+      `,
+      1: `
+        :root{--blue:#111;--blue-light:#1b1b1b;--gold:#FFD700;--gold-light:#FFE84D;--white:#111;--off-white:#171717;--text:#eee;--text-muted:#bbb;--border:rgba(255,255,255,.08);--shadow:0 18px 44px rgba(0,0,0,.35)}
+        body{display:block;margin:0;padding-left:240px;background:#111;color:#eee}
+        .navbar{position:fixed;top:0;left:0;width:240px;height:100vh;flex-direction:column;justify-content:flex-start;align-items:flex-start;padding:36px 24px;gap:0;border-bottom:none;border-right:2px solid #FFD700;background:#0d0d0d;overflow-y:auto;z-index:1000}
+        .logo{flex-direction:column;align-items:flex-start;gap:8px;margin-bottom:40px}.navbar nav{display:flex;flex-direction:column;gap:12px;width:100%}.navbar nav a{color:rgba(255,255,255,.7);padding:8px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+        .btn-nav{background:#FFD700!important;color:#111!important;text-align:center;border-radius:8px;padding:10px 14px;margin-top:8px}.logo-title{color:#fff}.logo-sub{color:#FFD700}
+        .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding-top:0;background:#111}
+        .hero-img{display:block;position:absolute;inset:0;background-image:var(--hero-image);background-size:cover;background-position:center;filter:brightness(.32);animation:zoomSlow 16s ease-in-out infinite alternate}
+        .hero-overlay{display:block;position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,0,0,.72),rgba(0,0,0,.18));z-index:1}
+        .hero-grid{grid-template-columns:1fr;position:relative;z-index:2;width:min(860px,calc(100% - 48px));padding:64px 0}
+        .hero-content{max-width:680px;text-align:center;margin:0 auto}.hero-content h1{color:#fff}.hero-content p{color:#ddd}.badge{background:#FFD700;color:#111;border-color:#FFD700}.hero-btns{justify-content:center}
+        .hero-side{display:none}
+        .info-strip{display:flex;flex-direction:column;background:#0d0d0d;border-top:2px solid #FFD700;border-bottom:2px solid #FFD700}.info-item{border-right:none;border-bottom:1px solid rgba(255,255,255,.08);padding:20px 5%}.info-item:last-child{border-bottom:none}.info-item strong{color:#FFD700}
+        .services{background:#111;padding:78px 0}.section-header,.section-header.center{text-align:left;margin-inline:0}.section-header h2,.contact .section-header h2{color:#fff}.section-label,.gold{color:#FFD700}
+        .cards{grid-template-columns:1fr;gap:16px}.card{display:grid;grid-template-columns:220px 1fr;border-top:none;border-left:4px solid #FFD700;background:#1a1a1a}.card-media{height:auto;min-height:100%;display:block}.card h3{color:#FFD700}.card p{color:#bbb}
+        .why{grid-template-columns:1fr}.why-img-wrap{min-height:280px}.why-img{filter:brightness(.6)}.why-text{background:#0d0d0d;padding:42px 5%;border-color:rgba(255,255,255,.08)}.why-text p,.why-text li{color:#ddd}.check{background:#FFD700;color:#111}
+        .contact{text-align:left;background:#111;padding:78px 0}.contact-wrap{grid-template-columns:1fr;max-width:100%;gap:12px}.contact-card{background:#1a1a1a;border-bottom:3px solid #FFD700;border-color:rgba(255,255,255,.06)}.contact-card h4{color:#FFD700}.contact-card p,.contact-card a{color:#bbb}.cta-wrap{justify-content:flex-start}.footer{background:#0d0d0d;border-top:2px solid #FFD700;color:rgba(255,255,255,.78)}
+      `,
+      2: `
+        :root{--blue:#1565C0;--blue-light:#1d73d2;--gold:#E53935;--gold-light:#EF5350;--white:#ffffff;--off-white:#F0F4FF;--text:#0D1B3E;--text-muted:#455a64;--border:rgba(21,101,192,.12);--shadow:0 18px 40px rgba(21,101,192,.12)}
+        body{display:block;margin:0;padding-left:0;background:#fff;color:#0D1B3E}
+        .navbar{position:sticky;top:0;left:0;width:100%;height:64px;flex-direction:row;padding:0 5%;border-bottom:1px solid #e0e0e0;border-right:none;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+        .logo-title{color:#1565C0}.logo-sub{color:#E53935}.navbar nav{display:flex;flex-direction:row;gap:24px;align-items:center}.navbar nav a{color:#455a64}.btn-nav{background:#E53935!important;color:#fff!important;box-shadow:none}
+        .hero{min-height:92vh;display:grid;align-items:stretch;overflow:hidden;padding-top:0;background:#fff}
+        .hero-img{display:block;position:absolute;inset:auto 0 0 50%;width:50%;height:100%;background-image:var(--hero-image);background-size:cover;background-position:center;filter:brightness(.84);animation:none}
+        .hero-overlay{display:none}
+        .hero-grid{grid-template-columns:1fr 1fr;align-items:stretch;width:100%;max-width:none;gap:0;padding:0}
+        .hero-content{grid-column:1;grid-row:1;background:#fff;padding:96px 8%;max-width:none;display:flex;flex-direction:column;justify-content:center;text-align:left}.hero-content h1{color:#1565C0}.hero-content p{color:#455a64}.badge{background:#F0F4FF;color:#1565C0;border-color:rgba(21,101,192,.16)}
+        .hero-btns{justify-content:flex-start}.btn-primary{background:#E53935;color:#fff;box-shadow:none}.btn-outline{border-color:#1565C0;color:#1565C0;background:transparent}
+        .hero-side{display:none}
+        .info-strip{display:grid;grid-template-columns:repeat(3,1fr);background:#1565C0;border-top:none;border-bottom:none}.info-item{border-right:1px solid rgba(255,255,255,.15);padding:24px 5%}.info-item:last-child{border-right:none}.info-item strong{color:#fff}
+        .services{padding:84px 0;background:#F0F4FF}.cards{grid-template-columns:1fr 1fr;gap:24px}.card{display:block;border-top:4px solid #E53935;border-left:none}.card-media{height:210px}.section-header,.section-header.center{text-align:left;margin-inline:0}.section-header h2,.contact .section-header h2{color:#1565C0}.section-label,.gold{color:#E53935}
+        .why{grid-template-columns:1fr 1fr}.why-img-wrap{min-height:420px}.why-text{background:#fff}.contact{text-align:left;background:#fff;padding:84px 0}.contact-wrap{grid-template-columns:repeat(3,1fr);max-width:100%}.contact-card h4{color:#1565C0}.cta-wrap{justify-content:flex-start}.footer{background:#1565C0;color:rgba(255,255,255,.88)}
+      `
+    };
 
-<!-- Sezione Contatti -->
-<section class="bg-gray-200 p-12 text-center">
-    <h2 class="text-3xl font-bold mb-4">Contattaci!</h2>
-    <p class="text-lg mb-8">Per qualsiasi informazione o richiesta, contattaci su WhatsApp!</p>
-    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onclick="window.location.href='https://wa.me/12345678901'">Contatta su WhatsApp</button>
-</section>
+    const meta = [
+      { name: '🔵 Navy & Gold', sub: 'Classico' },
+      { name: '⚫ Dark Sidebar', sub: 'Premium' },
+      { name: '⚪ Minimal Light', sub: 'Moderno' }
+    ];
 
-<!-- Sezione Mappa -->
-<section class="bg-gray-200 p-12">
-    <h2 class="text-3xl font-bold mb-4">Trova la nostra sede!</h2>
-    <div class="mb-8" style="height: 400px; width: 100%; margin: auto;">
-        <iframe src="https://www.google.com/maps/embed?pb=!1s0x876f6d7b9c5e4f%3B13.4183514,42.1017614!2e5!3i10!3p1!3m2!1i1024!2i768!4f13.1&amp;output=embed" width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen></iframe>
-    </div>
-</section>
+    const styleNode = document.createElement('style');
+    styleNode.id = 'layout-style';
+    document.head.appendChild(styleNode);
 
-<script src="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.js"></script>
+    const switcher = document.getElementById('lsw');
+    const label = document.getElementById('lsl');
+
+    function apply(i) {
+      styleNode.textContent = layoutCSS[i];
+      document.querySelectorAll('.lb').forEach((b, j) => b.classList.toggle('on', j === i));
+      const bg = ['rgba(10,36,99,.97)', 'rgba(13,13,13,.98)', 'rgba(21,101,192,.97)'];
+      const br = ['#D4AF37', '#FFD700', '#E53935'];
+      switcher.style.background = bg[i];
+      switcher.style.borderColor = br[i];
+      label.style.color = br[i];
+    }
+
+    document.querySelectorAll('.lb').forEach(btn => {
+      btn.addEventListener('click', () => apply(+btn.dataset.i));
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('in');
+      });
+    }, { threshold: 0.14 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    apply(0);
+  </script>
 </body>
 </html>
-```
-
-Ecco il CSS per la Landing Page:
-
-```css
-/* 
- * Tailwind CSS Configuration File
- *
- * Feel free to customize this file to fit your needs.
- */
-
-// Colors
-@tailwind base;
-@tailwind components;
-
-// Utilities
-@tailwind utilities;
-
-// Layout
-.layout {
-    @apply flex justify-center items-center h-screen;
-}
-
-.layout-container {
-    @apply w-full max-w-lg mx-auto p-8 text-gray-900;
-}
-```
-
-Nota che il codice sopra utilizza Tailwind CSS per la gestione dello stile. Se desideri personalizzare lo stile, puoi modificare i file `tailwind.config.js` e `postcss.config.js`.
